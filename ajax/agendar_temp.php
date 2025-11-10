@@ -81,10 +81,18 @@ if(@count($res) > 0){
 		exit();
 }
 
-while (@strtotime($nova_hora) < @strtotime($hora_final_servico)){
+// Verifica apenas os intervalos DENTRO da duração do serviço (não o horário final exato)
+// Se o serviço dura exatamente o intervalo, não precisa verificar nada (já foi validado o horário inicial)
+if($tempo > $intervalo){
+	while (@strtotime($nova_hora) < @strtotime($hora_final_servico)){
 		
 		$hora_minutos = @strtotime("+$intervalo minutes", @strtotime($nova_hora));			
-		$nova_hora = date('H:i:s', $hora_minutos);		
+		$nova_hora = date('H:i:s', $hora_minutos);
+		
+		// Se chegou ou passou do horário final do serviço, para o loop
+		if(@strtotime($nova_hora) >= @strtotime($hora_final_servico)){
+			break;
+		}
 		
 		//VERIFICAR NA TABELA HORARIOS AGD SE TEM O HORARIO NESSA DATA
 		$query_agd = $pdo->prepare("SELECT * FROM horarios_agd where data = :data and funcionario = :funcionario and horario = '$nova_hora'");
@@ -106,18 +114,9 @@ while (@strtotime($nova_hora) < @strtotime($hora_final_servico)){
 		$query_agd->execute();
 		$res_agd = $query_agd->fetchAll(PDO::FETCH_ASSOC);
 		if(@count($res_agd) > 0){
-			if($tempo <= $intervalo){
-
-			}else{
-				if($hora_final_servico == $res_agd[0]['hora']){
-					
-				}else{
-					echo 'Este serviço demora cerca de '.$tempo.' minutos, precisa escolher outro horário, pois neste horários não temos disponibilidade devido a outros agendamentos!';
-						exit();
-				}
-				
-			}
-			
+			// Se encontrou agendamento em um intervalo interno, não permite
+			echo 'Este serviço demora cerca de '.$tempo.' minutos, precisa escolher outro horário, pois neste horários não temos disponibilidade devido a outros agendamentos!';
+			exit();
 		}
 
 
@@ -126,6 +125,23 @@ while (@strtotime($nova_hora) < @strtotime($hora_final_servico)){
 			exit();
 	}
 
+	}
+	
+	// Verifica se o horário final do serviço conflita com outro agendamento
+	// Só verifica se o serviço termina exatamente no início de outro agendamento
+	$query_agd = $pdo->prepare("SELECT * FROM agendamentos where data = :data and funcionario = :funcionario and hora = '$hora_final_servico'");
+	$query_agd->bindValue(":funcionario", "$funcionario");
+	$query_agd->bindValue(":data", "$data");
+	$query_agd->execute();
+	$res_agd = $query_agd->fetchAll(PDO::FETCH_ASSOC);
+	if(@count($res_agd) > 0){
+		// Se há agendamento começando exatamente quando este serviço termina, está OK
+		// Mas verifica se não está no horário de almoço
+		if(@strtotime($hora_final_servico) > @strtotime($inicio_almoco) and @strtotime($hora_final_servico) < @strtotime($final_almoco)){
+			echo 'Este serviço demora cerca de '.$tempo.' minutos, precisa escolher outro horário, pois neste horários não temos disponibilidade devido ao horário de almoço!';
+			exit();
+		}
+	}
 }
 
 
