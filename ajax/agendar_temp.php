@@ -155,33 +155,60 @@ if($total_reg > 0 and $res[0]['id'] != $id){
 	exit();
 }
 
-$senha = '123';
-$senha_crip = password_hash($senha, PASSWORD_DEFAULT);
-//Cadastrar o cliente caso não tenha cadastro
-$query = $pdo->prepare("SELECT * FROM clientes where telefone LIKE :telefone ");
-$query->bindValue(":telefone", "$telefone");
-$query->execute();
-$res = $query->fetchAll(PDO::FETCH_ASSOC);
-if(@count($res) == 0){
-	$query = $pdo->prepare("INSERT INTO clientes SET nome = :nome, telefone = :telefone, data_cad = curDate(), cartoes = '0', alertado = 'Não', senha_crip = '$senha_crip'");
+// Verifica se o cliente já está logado (sessão ou cookie)
+$id_cliente_logado = @$_SESSION['id'];
+if($id_cliente_logado == "" && isset($_COOKIE['id_cliente']) && $_COOKIE['id_cliente'] != ""){
+	$id_cliente_logado = $_COOKIE['id_cliente'];
+}
 
-	$query->bindValue(":nome", "$nome");
-	$query->bindValue(":telefone", "$telefone");	
-	$query->execute();
-	$id_cliente = $pdo->lastInsertId();
-
-}else{
-	$id_cliente = $res[0]['id'];
-
-	//verificar se o cliente tem débito
-	$query22 = $pdo->query("SELECT * FROM receber where pessoa = '$id_cliente' and data_venc < curDate() and pago = 'Não'");
-	$res22 = $query22->fetchAll(PDO::FETCH_ASSOC);
-	$total_debitos = @count($res22);
-	if($total_debitos > 0){
-		echo 'Você possui conta em aberto, efetue o pagamento antes de agendar!';
-		exit();
+// Se o cliente já está logado, usa o ID da sessão/cookie
+if($id_cliente_logado != ""){
+	// Verifica se o ID existe no banco
+	$query = $pdo->query("SELECT * FROM clientes WHERE id = '$id_cliente_logado' LIMIT 1");
+	$res = $query->fetchAll(PDO::FETCH_ASSOC);
+	
+	if(count($res) > 0){
+		// Cliente logado existe, usa o ID dele
+		$id_cliente = $res[0]['id'];
+		// Atualiza nome e telefone se necessário
+		if($res[0]['nome'] != $nome || $res[0]['telefone'] != $telefone){
+			$pdo->query("UPDATE clientes SET nome = '$nome', telefone = '$telefone' WHERE id = '$id_cliente'");
+		}
+	} else {
+		// ID não existe mais, busca pelo telefone
+		$id_cliente_logado = "";
 	}
+}
 
+// Se não estava logado ou ID não existe, busca/cadastra pelo telefone
+if($id_cliente_logado == ""){
+	$senha = '123';
+	$senha_crip = password_hash($senha, PASSWORD_DEFAULT);
+	//Cadastrar o cliente caso não tenha cadastro
+	$query = $pdo->prepare("SELECT * FROM clientes where telefone LIKE :telefone ");
+	$query->bindValue(":telefone", "$telefone");
+	$query->execute();
+	$res = $query->fetchAll(PDO::FETCH_ASSOC);
+	if(@count($res) == 0){
+		$query = $pdo->prepare("INSERT INTO clientes SET nome = :nome, telefone = :telefone, data_cad = curDate(), cartoes = '0', alertado = 'Não', senha_crip = '$senha_crip'");
+
+		$query->bindValue(":nome", "$nome");
+		$query->bindValue(":telefone", "$telefone");	
+		$query->execute();
+		$id_cliente = $pdo->lastInsertId();
+
+	}else{
+		$id_cliente = $res[0]['id'];
+	}
+}
+
+//verificar se o cliente tem débito
+$query22 = $pdo->query("SELECT * FROM receber where pessoa = '$id_cliente' and data_venc < curDate() and pago = 'Não'");
+$res22 = $query22->fetchAll(PDO::FETCH_ASSOC);
+$total_debitos = @count($res22);
+if($total_debitos > 0){
+	echo 'Você possui conta em aberto, efetue o pagamento antes de agendar!';
+	exit();
 }
 
 

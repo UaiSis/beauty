@@ -23,7 +23,15 @@ if($total_reg > 0){
 
 		$_SESSION['id'] = $res[0]['id'];		
 		$_SESSION['nome'] = $res[0]['nome'];
+		$_SESSION['telefone'] = $res[0]['telefone'];
+		$_SESSION['nivel'] = 'Cliente';
 		$_SESSION['aut_token_505052022'] = 'fdsfdsafda885574125';
+		
+		// Salva cookies por 30 dias para manter login
+		$tempo_expiracao = time() + (30 * 24 * 60 * 60); // 30 dias
+		setcookie('id_cliente', $res[0]['id'], $tempo_expiracao, '/');
+		setcookie('nome_cliente', $res[0]['nome'], $tempo_expiracao, '/');
+		setcookie('telefone_cliente', $res[0]['telefone'], $tempo_expiracao, '/');
 	
 		//ir para o painel
 		echo "<script>window.location='painel_cliente'</script>";

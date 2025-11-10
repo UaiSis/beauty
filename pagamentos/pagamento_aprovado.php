@@ -163,9 +163,12 @@ while (@strtotime($hora) < @strtotime($hora_final_servico)){
 
 if($id_conta != ""){
 	$query = $pdo->query("DELETE FROM agendamentos_temp where id = '$id_conta'");
-	echo "<script>window.location='../meus-agendamentos.php'</script>";
+	// Redireciona para o painel do cliente após pagamento aprovado
+	echo "<script>window.location='../sistema/painel_cliente'</script>";
 }else{
 	$query = $pdo->query("DELETE FROM agendamentos_temp where ref_pix = '$ref_pix'");
+	// Redireciona para o painel do cliente após pagamento aprovado
+	echo "<script>window.location='../sistema/painel_cliente'</script>";
 }
 
 
