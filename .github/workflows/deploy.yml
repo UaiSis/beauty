@@ -1,0 +1,29 @@
+name: 🚀 Deploy automático para o cPanel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧩 Checkout do código
+        uses: actions/checkout@v4
+
+      - name: 🚀 Conectar no cPanel e fazer deploy
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: uaisis.com
+          username: uaisisco
+          key: ${{ secrets.CPANEL_SSH_KEY }}
+          port: 22
+          script: |
+            cd /home/uaisisco/beauty
+            git pull origin main
+            composer install --no-dev --optimize-autoloader || true
+            php artisan migrate --force || true
+            php artisan cache:clear || true
+            php artisan config:cache || true
+            echo "✅ Deploy concluído com sucesso!"
