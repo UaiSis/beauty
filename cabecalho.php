@@ -517,16 +517,34 @@ window.appConfig = {
               <span>Serviços</span>
             </el-menu-item>
             
-            <el-menu-item index="sistema/acesso" class="menu-item-desktop">
+            <!-- Mostra "Acesso Cliente" e "Sistema" apenas se NÃO estiver logado -->
+            <el-menu-item v-if="!clienteLogado" index="sistema/acesso" class="menu-item-desktop">
               <i data-lucide="log-in" class="menu-icon"></i>
               <span>Acesso Cliente</span>
+            </el-menu-item>
+            
+            <!-- Mostra "Minha Área" se estiver logado -->
+            <el-menu-item v-if="clienteLogado" index="sistema/painel_cliente" class="menu-item-desktop">
+              <i data-lucide="layout-dashboard" class="menu-icon"></i>
+              <span>Minha Área</span>
             </el-menu-item>
 
             <!-- Spacer to push icons to the right -->
             <div class="flex-grow"></div>
+            
+            <!-- Mostra nome do cliente se estiver logado -->
+            <el-menu-item v-if="clienteLogado" index="sistema/painel_cliente" class="menu-item-desktop" style="font-weight: 600; color: #B9E4D4 !important;">
+              <i data-lucide="user-check" class="menu-icon" style="color: #B9E4D4; stroke: #B9E4D4;"></i>
+             Olá, <span>{{ clienteLogado.nome }}</span>
+            </el-menu-item>
+            
+            <!-- Botão de Logout se estiver logado -->
+            <el-menu-item v-if="clienteLogado" index="logout" class="icon-item menu-item-desktop" title="Sair da Conta">
+              <i data-lucide="log-out" class="menu-icon-only"></i>
+            </el-menu-item>
 
             <!-- Social Icons -->
-            <el-menu-item index="sistema" class="icon-item menu-item-desktop" title="Ir para o Sistema">
+            <el-menu-item v-if="!clienteLogado" index="sistema" class="icon-item menu-item-desktop" title="Ir para o Sistema">
               <i data-lucide="user-circle" class="menu-icon-only"></i>
             </el-menu-item>
             
@@ -589,15 +607,35 @@ window.appConfig = {
               <span>Serviços</span>
             </el-menu-item>
             
-            <el-menu-item index="sistema/acesso">
+            <!-- Mostra "Acesso Cliente" apenas se NÃO estiver logado -->
+            <el-menu-item v-if="!clienteLogado" index="sistema/acesso">
               <i data-lucide="log-in" class="menu-icon"></i>
               <span>Acesso</span>
+            </el-menu-item>
+            
+            <!-- Mostra "Minha Área" se estiver logado -->
+            <el-menu-item v-if="clienteLogado" index="sistema/painel_cliente">
+              <i data-lucide="layout-dashboard" class="menu-icon"></i>
+              <span>Minha Área</span>
+            </el-menu-item>
+            
+            <!-- Mostra informações do cliente logado -->
+            <el-menu-item v-if="clienteLogado" index="sistema/painel_cliente" style="background: rgba(185, 228, 212, 0.1) !important; margin-top: 8px;">
+              <i data-lucide="user-check" class="menu-icon" style="color: #B9E4D4; stroke: #B9E4D4;"></i>
+              <span style="color: #B9E4D4; font-weight: 600;">{{ clienteLogado.nome }}</span>
+            </el-menu-item>
+            
+            <!-- Botão de Logout se estiver logado -->
+            <el-menu-item v-if="clienteLogado" index="logout" style="background: rgba(220, 53, 69, 0.1) !important;">
+              <i data-lucide="log-out" class="menu-icon" style="color: #ff6b6b; stroke: #ff6b6b;"></i>
+              <span style="color: #ff6b6b; font-weight: 600;">Sair</span>
             </el-menu-item>
 
             <el-divider></el-divider>
 
             <div class="mobile-social-icons">
-              <el-menu-item index="sistema" class="social-icon-item">
+              <!-- Mostra ícone do sistema apenas se NÃO estiver logado -->
+              <el-menu-item v-if="!clienteLogado" index="sistema" class="social-icon-item">
                 <i data-lucide="user-circle" class="menu-icon-only"></i>
               </el-menu-item>
               
@@ -647,7 +685,8 @@ window.appConfig = {
           return {
             activeIndex: getCurrentPage(),
             drawerVisible: false,
-            config: window.appConfig || {}
+            config: window.appConfig || {},
+            clienteLogado: null
           }
         },
         computed: {
@@ -671,7 +710,12 @@ window.appConfig = {
         },
         methods: {
           handleSelect(index) {
-            if (index.startsWith('http')) {
+            if (index === 'logout') {
+              this.fazerLogout();
+            } else if (index === 'sistema/painel_cliente') {
+              // Ao clicar em "Minha Área", salva sessão antes de redirecionar
+              this.acessarMinhaArea();
+            } else if (index.startsWith('http')) {
               window.open(index, '_blank');
             } else if (index === 'sistema') {
               window.open(index, '_blank');
@@ -679,12 +723,75 @@ window.appConfig = {
               window.location.href = index;
             }
           },
+          acessarMinhaArea() {
+            // Redireciona para página de auto-login que fará a verificação
+            window.location.href = 'sistema/auto-login-cliente.php';
+          },
           handleMobileSelect(index) {
             this.drawerVisible = false;
             this.handleSelect(index);
+          },
+          verificarClienteLogado() {
+            // Primeiro verifica localStorage
+            const clienteStorage = localStorage.getItem('cliente_logado');
+            if (clienteStorage) {
+              try {
+                this.clienteLogado = JSON.parse(clienteStorage);
+                return;
+              } catch (e) {
+                console.log('Erro ao recuperar sessão do cliente');
+              }
+            }
+            
+            // Se não tiver no localStorage, verifica se tem nos cookies
+            const cookieId = this.getCookie('id_cliente');
+            const cookieNome = this.getCookie('nome_cliente');
+            const cookieTelefone = this.getCookie('telefone_cliente');
+            
+            if (cookieId && cookieNome) {
+              this.clienteLogado = {
+                id: cookieId,
+                nome: cookieNome,
+                telefone: cookieTelefone,
+                email: ''
+              };
+              // Atualiza o localStorage também
+              localStorage.setItem('cliente_logado', JSON.stringify(this.clienteLogado));
+            }
+          },
+          getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+          },
+          fazerLogout() {
+            if (confirm('Deseja realmente sair da sua conta?')) {
+              // Remove localStorage
+              localStorage.removeItem('cliente_logado');
+              this.clienteLogado = null;
+              
+              // Remove cookies via AJAX para sincronizar com sessão PHP
+              fetch('ajax/logout-cliente.php', {
+                method: 'POST'
+              }).then(() => {
+                // Redireciona para a home
+                window.location.href = 'index.php';
+              }).catch(() => {
+                // Se der erro, redireciona mesmo assim
+                window.location.href = 'index.php';
+              });
+            }
           }
         },
         mounted() {
+          this.verificarClienteLogado();
+          
+          // Atualiza a cada 1 segundo para detectar mudanças no login
+          setInterval(() => {
+            this.verificarClienteLogado();
+          }, 1000);
+          
           this.$nextTick(() => {
             setTimeout(() => {
               lucide.createIcons();

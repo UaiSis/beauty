@@ -2059,26 +2059,36 @@ $_SESSION['usuario_logado_pagina'] = true;
 	.textarea-modern-step {
 		width: 100%;
 		padding: 16px 20px;
-		background: rgba(0, 0, 0, 0.2);
-		border: 1px solid rgba(255, 255, 255, 0.15);
+		background: rgba(255, 255, 255, 0.95);
+		border: 2px solid rgba(0, 122, 99, 0.2);
 		border-radius: 12px;
-		color: #FEFEFE;
+		color: #1a1a1a;
 		font-size: 15px;
 		transition: all 0.3s ease;
 		font-family: inherit;
+		font-weight: 500;
 	}
 
 	.input-modern-step::placeholder,
 	.textarea-modern-step::placeholder {
-		color: rgba(254, 254, 254, 0.5);
+		color: rgba(26, 26, 26, 0.4);
 	}
 
 	.input-modern-step:focus,
 	.textarea-modern-step:focus {
 		outline: none;
-		border-color: #B9E4D4;
-		background: rgba(0, 0, 0, 0.3);
-		box-shadow: 0 0 0 3px rgba(185, 228, 212, 0.1);
+		border-color: #007A63;
+		background: rgba(255, 255, 255, 1);
+		box-shadow: 0 0 0 3px rgba(0, 122, 99, 0.1);
+	}
+	
+	/* Campos readonly (quando cliente está logado) */
+	.input-modern-step[readonly],
+	.textarea-modern-step[readonly] {
+		background: rgba(185, 228, 212, 0.15);
+		border-color: rgba(0, 122, 99, 0.3);
+		color: #1a1a1a;
+		cursor: not-allowed;
 	}
 
 	.textarea-modern-step {
@@ -2960,6 +2970,91 @@ $_SESSION['usuario_logado_pagina'] = true;
 </div>
 </div>
 
+<!-- Modal de Login do Cliente -->
+<div class="modal fade" id="modalLoginCliente" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content" style="border-radius: 20px; border: none; overflow: hidden;">
+			<div class="modal-header" style="background: linear-gradient(135deg, #007A63 0%, #006854 100%); border: none; padding: 24px 30px;">
+				<div style="flex: 1;">
+					<h5 class="modal-title" id="modalLoginLabel" style="color: #fff; font-weight: 700; font-size: 22px; margin: 0; display: flex; align-items: center; gap: 10px;">
+						<i class="fa fa-user-circle" style="font-size: 24px;"></i>
+						<span>Acesso do Cliente</span>
+					</h5>
+					<p style="color: rgba(255, 255, 255, 0.85); font-size: 13px; margin: 8px 0 0 0;">
+						Faça login para continuar com seu agendamento
+					</p>
+				</div>
+			</div>
+			
+			<form id="form-login-cliente">
+				<div class="modal-body" style="padding: 30px;">
+					<!-- Alerta de Primeiro Acesso -->
+					<div class="alert" style="background: rgba(0, 122, 99, 0.08); border: 1px solid rgba(0, 122, 99, 0.2); border-radius: 12px; padding: 16px; margin-bottom: 24px;">
+						<div style="display: flex; align-items: flex-start; gap: 12px;">
+							<i class="fa fa-info-circle" style="color: #007A63; font-size: 20px; margin-top: 2px;"></i>
+							<div>
+								<strong style="color: #007A63; font-size: 14px; display: block; margin-bottom: 4px;">
+									Primeiro acesso?
+								</strong>
+								<span style="color: #495057; font-size: 13px; line-height: 1.5;">
+									Digite seu telefone e nome, a senha padrão é <strong>123</strong>. Você poderá alterá-la depois.
+								</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group" style="margin-bottom: 20px;">
+						<label style="font-weight: 600; color: #495057; font-size: 13px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+							<i class="fa fa-phone" style="color: #007A63;"></i>
+							<span>Telefone</span>
+						</label>
+						<input type="text" class="form-control" id="telefone_login" name="telefone_login" placeholder="(00) 00000-0000" required 
+							   style="border: 2px solid #e9ecef; border-radius: 10px; padding: 12px 16px; font-size: 15px; transition: all 0.3s ease;">
+					</div>
+					
+					<div class="form-group" style="margin-bottom: 20px;" id="campo_nome_cadastro" style="display: none;">
+						<label style="font-weight: 600; color: #495057; font-size: 13px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+							<i class="fa fa-user" style="color: #007A63;"></i>
+							<span>Nome Completo</span>
+						</label>
+						<input type="text" class="form-control" id="nome_login" name="nome_login" placeholder="Digite seu nome completo"
+							   style="border: 2px solid #e9ecef; border-radius: 10px; padding: 12px 16px; font-size: 15px; transition: all 0.3s ease;">
+					</div>
+					
+					<div class="form-group" style="margin-bottom: 24px;">
+						<label style="font-weight: 600; color: #495057; font-size: 13px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+							<i class="fa fa-lock" style="color: #007A63;"></i>
+							<span>Senha</span>
+						</label>
+						<div style="position: relative;">
+							<input type="password" class="form-control" id="senha_login" name="senha_login" placeholder="Digite sua senha" required 
+								   style="border: 2px solid #e9ecef; border-radius: 10px; padding: 12px 16px; font-size: 15px; transition: all 0.3s ease; padding-right: 45px;">
+							<i class="fa fa-eye" id="toggle_senha" 
+							   style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: #6c757d; cursor: pointer; font-size: 16px;"
+							   onclick="toggleSenha()"></i>
+						</div>
+					</div>
+					
+					<div id="mensagem-login" style="margin-bottom: 16px; text-align: center;"></div>
+				</div>
+				
+				<div class="modal-footer" style="border: none; padding: 0 30px 30px; gap: 12px;">
+					<button type="button" class="btn btn-secondary" onclick="voltarParaEtapa2()" 
+							style="border-radius: 10px; padding: 12px 24px; font-weight: 600; font-size: 14px; flex: 1; border: 2px solid #e9ecef; background: #fff; color: #6c757d;">
+						<i class="fa fa-arrow-left mr-2"></i>
+						Voltar
+					</button>
+					<button type="submit" class="btn btn-primary" id="btn_login" 
+							style="border-radius: 10px; padding: 12px 24px; font-weight: 600; font-size: 14px; flex: 1; background: #007A63; border: none; box-shadow: 0 4px 12px rgba(0, 122, 99, 0.3);">
+						<i class="fa fa-sign-in mr-2"></i>
+						<span id="texto_btn_login">Entrar</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
 <!-- Modal de Exclusão -->
 <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
@@ -3029,26 +3124,6 @@ $_SESSION['usuario_logado_pagina'] = true;
 
 
 
-<script>
-  let deferredPrompt;
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    document.getElementById('botao-instalar').style.display = 'block';
-
-    document.getElementById('botao-instalar').addEventListener('click', async () => {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log('Resultado da instalação:', outcome);
-      deferredPrompt = null;
-    });
-  });
-
-  window.addEventListener('appinstalled', () => {
-    console.log('✅ App instalado!');
-  });
-</script>
 
 
 
@@ -3125,12 +3200,9 @@ $(document).ready(function() {
         return;
       }
       
-      // Carrega os horários quando avança para a etapa 3
-      mudarFuncionario();
-      
-      // Oculta sticky footers da etapa 3
-      $('.sticky-footer-step-3').removeClass('active');
-      $('.sticky-footer-empty-3').removeClass('active');
+      // MODIFICADO: Abre o modal de login ao invés de avançar direto
+      abrirModalLogin();
+      return; // Não avança para a etapa 3 ainda
     }
     
     if (currentStep === 3) {
@@ -3386,7 +3458,7 @@ function carregarProfissionaisCards() {
 
 }
 
-// Função para selecionar um profissional
+// Função para selecionar um profissional - MODIFICADA PARA ABRIR MODAL DE LOGIN
 function selecionarProfissional(id, nome) {
   // Remove a seleção de todos os cards
   $('.professional-card-modern').removeClass('selected');
@@ -3417,17 +3489,16 @@ function selecionarProfissional(id, nome) {
   
   // Chama a função original para mudar funcionário
   listarFuncionario();
+  
+  // NOVO: Abre o modal de login ao invés de avançar direto
+  abrirModalLogin();
 }
 
-// Função para selecionar um profissional e avançar automaticamente
+// Função para selecionar um profissional e avançar automaticamente - MODIFICADA
 function selecionarProfissionalEAvancar(id, nome) {
   // Seleciona o profissional
   selecionarProfissional(id, nome);
-  
-  // Avança para a próxima etapa após um pequeno delay
-  setTimeout(() => {
-    $('.next-step[data-step="2"]').click();
-  }, 100);
+  // O modal será aberto automaticamente pela função acima
 }
 
 // Função para atualizar o resumo
@@ -3810,6 +3881,7 @@ $("#form-agenda").submit(function () {
               confirmButton: 'swal-agendamento-btn'
             }
           }).then(() => {
+            // Redireciona para a tela de pagamento
             window.location="pagamento/"+id_agd+"/100";
           });
         } else {
@@ -3825,6 +3897,7 @@ $("#form-agenda").submit(function () {
             '</div>'
           );
           setTimeout(() => {
+            // Redireciona para a tela de pagamento
             window.location="pagamento/"+id_agd+"/100";
           }, 3000);
         }
@@ -3873,6 +3946,460 @@ $("#form-agenda").submit(function () {
 <script type="text/javascript">
   function irParaProximaEtapa(etapaAtual) {
   $('.next-step[data-step="' + etapaAtual + '"]').click();
+}
+</script>
+
+<script type="text/javascript">
+// ============================================
+// SISTEMA DE LOGIN DO CLIENTE
+// ============================================
+
+// Variável global para armazenar dados do cliente logado
+var clienteLogado = {
+  id: null,
+  nome: null,
+  telefone: null,
+  email: null
+};
+
+// Função para toggle de senha
+function toggleSenha() {
+  var senhaInput = document.getElementById('senha_login');
+  var toggleIcon = document.getElementById('toggle_senha');
+  
+  if (senhaInput.type === 'password') {
+    senhaInput.type = 'text';
+    toggleIcon.className = 'fa fa-eye-slash';
+  } else {
+    senhaInput.type = 'password';
+    toggleIcon.className = 'fa fa-eye';
+  }
+}
+
+// Função para voltar para a etapa 2
+function voltarParaEtapa2() {
+  $('#modalLoginCliente').modal('hide');
+  // Limpa os campos do modal
+  $('#telefone_login').val('');
+  $('#nome_login').val('');
+  $('#senha_login').val('');
+  $('#mensagem-login').html('');
+  $('#campo_nome_cadastro').hide();
+}
+
+// Máscara para telefone no modal de login e verificação de sessão
+$(document).ready(function() {
+  if($.fn.mask) {
+    $('#telefone_login').mask('(00) 00000-0000');
+  }
+  
+  // Efeito de foco nos inputs do modal
+  $('#telefone_login, #nome_login, #senha_login').focus(function() {
+    $(this).css('border-color', '#007A63');
+    $(this).css('box-shadow', '0 0 0 3px rgba(0, 122, 99, 0.1)');
+  }).blur(function() {
+    $(this).css('border-color', '#e9ecef');
+    $(this).css('box-shadow', 'none');
+  });
+  
+  // Verifica se já está logado ao carregar a página
+  verificarSessaoCliente();
+  
+  // Adiciona indicador de cliente logado na etapa 4 após um delay
+  setTimeout(function() {
+    if (clienteLogado && clienteLogado.id) {
+      var indicadorLogado = '<div class="alert alert-success" style="background: #2a2a2a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;">' +
+        '<div style="display: flex; align-items: center; gap: 10px;">' +
+        '<i class="fa fa-user-check" style="color:rgb(87, 87, 87); font-size: 18px;"></i>' +
+        '<span style="color:rgb(220, 221, 220); font-weight: 600; font-size: 14px;">Você está logado como ' + clienteLogado.nome + '</span>' +
+        '</div>' +
+        '<button type="button" class="btn btn-sm btn-outline-danger" onclick="fazerLogout()" style="border-radius: 8px; font-size: 12px; padding: 6px 12px;">' +
+        '<i class="fa fa-sign-out mr-1"></i> Sair' +
+        '</button>' +
+        '</div>';
+      
+      $('.form-grid-modern').before(indicadorLogado);
+    }
+  }, 500);
+});
+
+// Função para verificar se já existe sessão do cliente
+function verificarSessaoCliente() {
+  var clienteStorage = localStorage.getItem('cliente_logado');
+  if (clienteStorage) {
+    try {
+      clienteLogado = JSON.parse(clienteStorage);
+      if (clienteLogado && clienteLogado.id) {
+        // Cliente já está logado, preenche os dados
+        preencherDadosCliente();
+      }
+    } catch (e) {
+      console.log('Erro ao recuperar sessão do cliente');
+    }
+  }
+}
+
+// Função para preencher dados do cliente na etapa 4
+function preencherDadosCliente() {
+  if (clienteLogado && clienteLogado.id) {
+    // Formata o telefone antes de preencher
+    var telefoneFormatado = clienteLogado.telefone;
+    
+    // Se o telefone não estiver formatado, formata
+    if (telefoneFormatado && telefoneFormatado.indexOf('(') === -1) {
+      // Remove tudo que não for número
+      var numeros = telefoneFormatado.replace(/[^0-9]/g, '');
+      
+      // Formata: (XX) XXXXX-XXXX
+      if (numeros.length === 11) {
+        telefoneFormatado = '(' + numeros.substr(0, 2) + ') ' + numeros.substr(2, 5) + '-' + numeros.substr(7, 4);
+      } else if (numeros.length === 10) {
+        telefoneFormatado = '(' + numeros.substr(0, 2) + ') ' + numeros.substr(2, 4) + '-' + numeros.substr(6, 4);
+      }
+    }
+    
+    $('#telefone').val(telefoneFormatado);
+    $('#nome').val(clienteLogado.nome);
+    
+    // Desabilita os campos para que o cliente não altere
+    $('#telefone').attr('readonly', true);
+    $('#nome').attr('readonly', true);
+  }
+}
+
+// Verifica telefone ao sair do campo
+$('#telefone_login').blur(function() {
+  var telefone = $(this).val();
+  if (telefone.length >= 14) { // (00) 00000-0000
+    verificarTelefoneExistente(telefone);
+  }
+});
+
+// Função para verificar se o telefone já existe
+function verificarTelefoneExistente(telefone) {
+  var tel = telefone.replace(/[^0-9]/g, '');
+  
+  $.ajax({
+    url: "ajax/autenticar-cliente.php",
+    method: 'POST',
+    data: {telefone: tel, buscar_dados: 'sim'},
+    dataType: "text",
+    
+    success: function(result) {
+      if (result.trim() === 'Primeiro Acesso') {
+        // Mostra o campo de nome para cadastro
+        $('#campo_nome_cadastro').show();
+        $('#nome_login').val('').prop('required', true);
+        $('#texto_btn_login').text('Cadastrar e Entrar');
+        
+        $('#mensagem-login').html(
+          '<div class="alert alert-info" style="background: rgba(0, 123, 255, 0.08); border: 1px solid rgba(0, 123, 255, 0.2); border-radius: 10px; padding: 12px; margin: 0;">' +
+          '<i class="fa fa-info-circle mr-2"></i>' +
+          '<small>Primeiro acesso detectado. Preencha seu nome para criar sua conta.</small>' +
+          '</div>'
+        );
+      } else if (result.includes('Existe')) {
+        // Telefone já existe - preenche os dados automaticamente
+        var dados = result.split('*');
+        var nome = dados[2];
+        
+        // Preenche o campo nome automaticamente
+        $('#nome_login').val(nome);
+        
+        // Oculta o campo de nome (só mostra senha)
+        $('#campo_nome_cadastro').hide();
+        $('#nome_login').prop('required', false);
+        $('#texto_btn_login').text('Entrar');
+        
+        // Mostra mensagem informativa
+        $('#mensagem-login').html(
+          '<div class="alert alert-success" style="background: rgba(40, 167, 69, 0.08); border: 1px solid rgba(40, 167, 69, 0.2); border-radius: 10px; padding: 12px; margin: 0;">' +
+          '<i class="fa fa-check-circle mr-2"></i>' +
+          '<small>Bem-vindo(a) de volta, <strong>' + nome + '</strong>! Digite sua senha para continuar.</small>' +
+          '</div>'
+        );
+      }
+    }
+  });
+}
+
+// Form submit do modal de login
+$("#form-login-cliente").submit(function(event) {
+  event.preventDefault();
+  
+  var telefone = $('#telefone_login').val();
+  var senha = $('#senha_login').val();
+  var nome = $('#nome_login').val();
+  
+  if (!telefone || !senha) {
+    $('#mensagem-login').html(
+      '<div class="alert alert-danger" style="background: rgba(220, 53, 69, 0.08); border: 1px solid rgba(220, 53, 69, 0.2); border-radius: 10px; padding: 12px; margin: 0;">' +
+      '<i class="fa fa-exclamation-circle mr-2"></i>' +
+      '<small>Preencha todos os campos obrigatórios!</small>' +
+      '</div>'
+    );
+    return;
+  }
+  
+  // Desabilita o botão
+  $('#btn_login').prop('disabled', true);
+  $('#mensagem-login').html(
+    '<div class="text-center">' +
+    '<div class="spinner-border text-primary" role="status" style="width: 1.5rem; height: 1.5rem;">' +
+    '<span class="sr-only">Carregando...</span>' +
+    '</div>' +
+    '</div>'
+  );
+  
+  var tel = telefone.replace(/[^0-9]/g, '');
+  
+  $.ajax({
+    url: "ajax/autenticar-cliente.php",
+    method: 'POST',
+    data: {telefone: tel, senha: senha},
+    dataType: "text",
+    
+    success: function(result) {
+      if (result.includes('Autenticado')) {
+        // Login bem-sucedido
+        var dados = result.split('*');
+        clienteLogado = {
+          id: dados[1],
+          nome: dados[2],
+          telefone: dados[3],
+          email: dados[4] || ''
+        };
+        
+        // Salva no localStorage
+        localStorage.setItem('cliente_logado', JSON.stringify(clienteLogado));
+        
+        // Salva na sessão PHP (cookie por 30 dias)
+        $.ajax({
+          url: "ajax/salvar-sessao-cliente.php",
+          method: 'POST',
+          data: {
+            id: clienteLogado.id,
+            nome: clienteLogado.nome,
+            telefone: clienteLogado.telefone
+          },
+          dataType: "text"
+        });
+        
+        // Preenche os dados na etapa 4
+        preencherDadosCliente();
+        
+        // Mostra mensagem de sucesso
+        $('#mensagem-login').html(
+          '<div class="alert alert-success" style="background: rgba(40, 167, 69, 0.08); border: 1px solid rgba(40, 167, 69, 0.2); border-radius: 10px; padding: 12px; margin: 0;">' +
+          '<i class="fa fa-check-circle mr-2"></i>' +
+          '<small>Login realizado com sucesso!</small>' +
+          '</div>'
+        );
+        
+        // Fecha o modal e avança para a etapa 3
+        setTimeout(function() {
+          $('#modalLoginCliente').modal('hide');
+          avancarParaEtapa3();
+        }, 1000);
+        
+      } else if (result.trim() === 'Primeiro Acesso') {
+        // Primeiro acesso - precisa cadastrar
+        if (!nome) {
+          $('#mensagem-login').html(
+            '<div class="alert alert-warning" style="background: rgba(255, 193, 7, 0.08); border: 1px solid rgba(255, 193, 7, 0.2); border-radius: 10px; padding: 12px; margin: 0;">' +
+            '<i class="fa fa-exclamation-triangle mr-2"></i>' +
+            '<small>Digite seu nome para criar sua conta!</small>' +
+            '</div>'
+          );
+          $('#btn_login').prop('disabled', false);
+          return;
+        }
+        
+        // Cadastra o novo cliente
+        cadastrarNovoCliente(tel, nome, senha);
+        
+      } else {
+        // Senha incorreta ou outro erro
+        $('#mensagem-login').html(
+          '<div class="alert alert-danger" style="background: rgba(220, 53, 69, 0.08); border: 1px solid rgba(220, 53, 69, 0.2); border-radius: 10px; padding: 12px; margin: 0;">' +
+          '<i class="fa fa-times-circle mr-2"></i>' +
+          '<small>' + result + '</small>' +
+          '</div>'
+        );
+        $('#btn_login').prop('disabled', false);
+      }
+    },
+    
+    error: function() {
+      $('#mensagem-login').html(
+        '<div class="alert alert-danger" style="background: rgba(220, 53, 69, 0.08); border: 1px solid rgba(220, 53, 69, 0.2); border-radius: 10px; padding: 12px; margin: 0;">' +
+        '<i class="fa fa-times-circle mr-2"></i>' +
+        '<small>Erro ao processar login. Tente novamente.</small>' +
+        '</div>'
+      );
+      $('#btn_login').prop('disabled', false);
+    }
+  });
+});
+
+// Função para cadastrar novo cliente
+function cadastrarNovoCliente(telefone, nome, senha) {
+  $.ajax({
+    url: "ajax/cadastrar-cliente-rapido.php",
+    method: 'POST',
+    data: {telefone: telefone, nome: nome},
+    dataType: "text",
+    
+    success: function(result) {
+      if (result.includes('Cadastrado')) {
+        // Cadastro bem-sucedido
+        var dados = result.split('*');
+        clienteLogado = {
+          id: dados[1],
+          nome: dados[2],
+          telefone: dados[3],
+          email: ''
+        };
+        
+        // Salva no localStorage
+        localStorage.setItem('cliente_logado', JSON.stringify(clienteLogado));
+        
+        // Salva na sessão PHP (cookie por 30 dias)
+        $.ajax({
+          url: "ajax/salvar-sessao-cliente.php",
+          method: 'POST',
+          data: {
+            id: clienteLogado.id,
+            nome: clienteLogado.nome,
+            telefone: clienteLogado.telefone
+          },
+          dataType: "text"
+        });
+        
+        // Preenche os dados na etapa 4
+        preencherDadosCliente();
+        
+        // Mostra mensagem de sucesso
+        $('#mensagem-login').html(
+          '<div class="alert alert-success" style="background: rgba(40, 167, 69, 0.08); border: 1px solid rgba(40, 167, 69, 0.2); border-radius: 10px; padding: 12px; margin: 0;">' +
+          '<i class="fa fa-check-circle mr-2"></i>' +
+          '<small>Conta criada com sucesso! Bem-vindo(a)!</small>' +
+          '</div>'
+        );
+        
+        // Fecha o modal e avança para a etapa 3
+        setTimeout(function() {
+          $('#modalLoginCliente').modal('hide');
+          avancarParaEtapa3();
+        }, 1500);
+        
+      } else {
+        $('#mensagem-login').html(
+          '<div class="alert alert-danger" style="background: rgba(220, 53, 69, 0.08); border: 1px solid rgba(220, 53, 69, 0.2); border-radius: 10px; padding: 12px; margin: 0;">' +
+          '<i class="fa fa-times-circle mr-2"></i>' +
+          '<small>' + result + '</small>' +
+          '</div>'
+        );
+      }
+      $('#btn_login').prop('disabled', false);
+    },
+    
+    error: function() {
+      $('#mensagem-login').html(
+        '<div class="alert alert-danger" style="background: rgba(220, 53, 69, 0.08); border: 1px solid rgba(220, 53, 69, 0.2); border-radius: 10px; padding: 12px; margin: 0;">' +
+        '<i class="fa fa-times-circle mr-2"></i>' +
+        '<small>Erro ao criar conta. Tente novamente.</small>' +
+        '</div>'
+      );
+      $('#btn_login').prop('disabled', false);
+    }
+  });
+}
+
+// Função para avançar para a etapa 3 (após login)
+function avancarParaEtapa3() {
+  // Carrega os horários quando avança para a etapa 3
+  mudarFuncionario();
+  
+  // Oculta sticky footers da etapa 3
+  $('.sticky-footer-step-3').removeClass('active');
+  $('.sticky-footer-empty-3').removeClass('active');
+  
+  // Avança para a próxima etapa
+  $('.form-step, .form-step-modern').removeClass('active');
+  $('#step-3-content').addClass('active');
+  
+  // Atualiza os indicadores de etapa
+  $('.step, .step-item').removeClass('active');
+  $('#step-3, #step-indicator-3').addClass('active');
+  
+  // Marca etapas anteriores como concluídas
+  $('#step-1, #step-indicator-1').addClass('completed');
+  $('#step-2, #step-indicator-2').addClass('completed');
+  
+  // Scroll para o topo
+  setTimeout(function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, 100);
+}
+
+// Função para fazer logout
+function fazerLogout() {
+  if(confirm('Deseja realmente sair da sua conta?')) {
+    // Limpa os dados
+    clienteLogado = {
+      id: null,
+      nome: null,
+      telefone: null,
+      email: null
+    };
+    localStorage.removeItem('cliente_logado');
+    
+    // Remove cookies
+    document.cookie = 'id_cliente=; Max-Age=0; path=/;';
+    document.cookie = 'nome_cliente=; Max-Age=0; path=/;';
+    document.cookie = 'telefone_cliente=; Max-Age=0; path=/;';
+    
+    // Limpa os campos
+    $('#telefone').val('').attr('readonly', false);
+    $('#nome').val('').attr('readonly', false);
+    
+    // Remove o indicador
+    $('.alert-success').remove();
+    
+    // Volta para a etapa 1
+    $('.form-step, .form-step-modern').removeClass('active');
+    $('#step-1-content').addClass('active');
+    
+    $('.step, .step-item').removeClass('active completed');
+    $('#step-1, #step-indicator-1').addClass('active');
+    
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+}
+
+// Função para abrir o modal de login
+function abrirModalLogin() {
+  // Verifica se o cliente já está logado
+  if (clienteLogado && clienteLogado.id) {
+    // Cliente já está logado, avança direto para a etapa 3
+    avancarParaEtapa3();
+    return;
+  }
+  
+  // Limpa os campos
+  $('#telefone_login').val('');
+  $('#nome_login').val('');
+  $('#senha_login').val(''); // Campo senha vazio para o usuário digitar
+  $('#mensagem-login').html('');
+  $('#campo_nome_cadastro').hide();
+  $('#texto_btn_login').text('Entrar');
+  
+  // Abre o modal
+  $('#modalLoginCliente').modal('show');
 }
 </script>
 

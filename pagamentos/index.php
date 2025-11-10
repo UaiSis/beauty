@@ -1116,7 +1116,7 @@ $sobrenome = $_REQUEST["sobrenome"];
                     
                     if (redi.trim() == "Sim") {
                         setTimeout(() => {
-                            window.location = "../meus-agendamentos.php";
+                            window.location = "../sistema/painel_cliente";
                         }, 6000);
                     }
                 } else {
