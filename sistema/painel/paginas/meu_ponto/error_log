@@ -1,0 +1,10 @@
+[10-Nov-2025 09:39:11 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip_saida_almoco' in 'field list' in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/meu_ponto/registrar.php:64
+Stack trace:
+#0 /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/meu_ponto/registrar.php(64): PDO->query('UPDATE pontos S...')
+#1 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/meu_ponto/registrar.php on line 64
+[10-Nov-2025 09:39:17 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ip_saida_almoco' in 'field list' in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/meu_ponto/registrar.php:64
+Stack trace:
+#0 /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/meu_ponto/registrar.php(64): PDO->query('UPDATE pontos S...')
+#1 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/meu_ponto/registrar.php on line 64

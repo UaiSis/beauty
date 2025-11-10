@@ -1,0 +1,8 @@
+[09-Nov-2025 17:48:29 America/Sao_Paulo] PHP Deprecated:  Function strftime() is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/rel/comprovante_comanda.php on line 6
+[09-Nov-2025 17:48:29 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/rel/comprovante_comanda.php on line 40
+[09-Nov-2025 17:48:29 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/rel/comprovante_comanda.php on line 49
+[09-Nov-2025 17:48:29 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/rel/comprovante_comanda.php on line 57
+[09-Nov-2025 17:48:29 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/rel/comprovante_comanda.php on line 65
+[10-Nov-2025 09:17:16 America/Sao_Paulo] PHP Deprecated:  Function strftime() is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/rel/comprovante_comanda.php on line 6
+[10-Nov-2025 09:17:16 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/rel/comprovante_comanda.php on line 49
+[10-Nov-2025 09:17:16 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/rel/comprovante_comanda.php on line 65

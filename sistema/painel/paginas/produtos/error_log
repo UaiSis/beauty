@@ -1,0 +1,52 @@
+[10-Nov-2025 12:34:28 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php on line 12
+[10-Nov-2025 12:34:29 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php on line 12
+[10-Nov-2025 12:34:32 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php on line 12
+[10-Nov-2025 12:34:33 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php on line 12
+[10-Nov-2025 12:34:33 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php on line 12
+[10-Nov-2025 12:34:34 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php on line 12
+[10-Nov-2025 12:34:36 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php on line 12
+[10-Nov-2025 12:34:37 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php on line 12
+[10-Nov-2025 12:34:40 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php on line 12
+[10-Nov-2025 12:34:45 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php on line 12
+[10-Nov-2025 12:35:12 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php on line 12
+[10-Nov-2025 12:38:16 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/entrada.php on line 12
+[10-Nov-2025 12:38:26 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string - string in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/saida.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uaisisco/barbearia.uaisis.com/sistema/painel/paginas/produtos/saida.php on line 12
