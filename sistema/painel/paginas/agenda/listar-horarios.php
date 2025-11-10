@@ -8,6 +8,7 @@ $data = @$_POST['data'];
 $hora_rec = '';
 $hora_atual = date('H:i:s');
 $hoje = date('Y-m-d');
+$servico = @$_POST['servico'];
 
 //verificar se possui essa data nos dias bloqueio geral
 $query = $pdo->query("SELECT * FROM dias_bloqueio where funcionario = '0' and data = '$data'");
@@ -97,6 +98,75 @@ $total_reg2 = @count($res2);
 			$checado3 = '';
 		}
 
+	}
+
+	//CODIGO PARA RECUPERAR TEMPO DO SERVIÇO PARA VER SE CABERÁ O SERVIÇO NO INTERVALO
+	if($servico != ""){
+		$query_tempo_servico = $pdo->prepare("SELECT * FROM servicos where id = :servico");
+		$query_tempo_servico->bindValue(":servico", "$servico");
+		$query_tempo_servico->execute();
+		$res_tempo_servico = $query_tempo_servico->fetchAll(PDO::FETCH_ASSOC);
+		$tempo = @$res_tempo_servico[0]['tempo'] ?: 0;
+
+		if($tempo > 0){
+			//CODIGO PARA NÃO MOSTRAR O HORÁRIO SE TIVER AGENDAMENTO QUE NÃO CAIBA O SERVIÇO
+			// Hora inicial do serviço tentado
+			$hora_inicio_tentada = strtotime($hora);
+			$hora_final_tentada = strtotime("+$tempo minutes", $hora_inicio_tentada);
+
+			// Buscar todos os agendamentos no dia e funcionário
+			$query_agd_verif = $pdo->prepare("SELECT * FROM agendamentos WHERE data = :data AND funcionario = :funcionario");
+			$query_agd_verif->bindValue(":funcionario", "$funcionario");
+			$query_agd_verif->bindValue(":data", "$data");
+			$query_agd_verif->execute();
+			$res_agd_verif = $query_agd_verif->fetchAll(PDO::FETCH_ASSOC);
+
+			foreach($res_agd_verif as $agendamento) {
+				$hora_agendada = strtotime($agendamento['hora']);
+				
+				// Buscar o tempo real do serviço agendado
+				$servico_agendado = $agendamento['servico'];
+				$query_tempo = $pdo->prepare("SELECT tempo FROM servicos WHERE id = :servico_id");
+				$query_tempo->bindValue(":servico_id", $servico_agendado);
+				$query_tempo->execute();
+				$res_tempo = $query_tempo->fetchAll(PDO::FETCH_ASSOC);
+				$tempo_servico_agendado = @$res_tempo[0]['tempo'] ?: 30; // padrão 30 minutos se não encontrar
+				
+				$hora_fim_agendada = strtotime("+$tempo_servico_agendado minutes", $hora_agendada);
+
+				// Verificar se há sobreposição
+				if (
+					($hora_inicio_tentada < $hora_fim_agendada) && 
+					($hora_final_tentada > $hora_agendada)
+				) {
+					// Há conflito de horário, desabilitar essa opção
+					$esconder = 'text-danger';
+					$checado = 'disabled';
+					break;
+				}
+			}
+
+			//verificacao almoço para não aparecer horarios
+			if(($hora_inicio_tentada < strtotime($final_almoco)) && ($hora_final_tentada > strtotime($inicio_almoco))){
+				$esconder = 'text-danger';
+				$checado = 'disabled';
+			}
+
+			// Verificar se algum dos horários necessários está bloqueado manualmente
+			$query_bloq = $pdo->query("SELECT * FROM horarios_agd WHERE data = '$data' AND funcionario = '$funcionario'");
+			$res_bloq = $query_bloq->fetchAll(PDO::FETCH_ASSOC);
+
+			foreach($res_bloq as $bloqueio) {
+				$hora_bloqueada = strtotime($bloqueio['horario']);
+				
+				// Verificar se algum momento do serviço cai em um horário bloqueado
+				if ($hora_bloqueada >= $hora_inicio_tentada && $hora_bloqueada < $hora_final_tentada) {
+					$esconder = 'text-danger';
+					$checado = 'disabled';
+					break;
+				}
+			}
+		}
 	}
 
 

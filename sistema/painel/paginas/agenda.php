@@ -401,6 +401,11 @@ if(@count($res) > 0){
 		$('.sel3').select2({
 			dropdownParent: $('#modalForm')
 		});
+		
+		// Atualizar horários quando o serviço mudar
+		$('#servico').on('change', function(){
+			listarHorarios();
+		});
 	});
 </script>
 
@@ -533,12 +538,13 @@ if(@count($res) > 0){
 
 		var funcionario = $('#funcionario').val();	
 		var data = $('#data_agenda').val();	
+		var servico = $('#servico').val();
 
 		
 		$.ajax({
 			url: 'paginas/' + pag + "/listar-horarios.php",
 			method: 'POST',
-			data: {funcionario, data},
+			data: {funcionario, data, servico},
 			dataType: "text",
 
 			success:function(result){

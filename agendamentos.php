@@ -2843,6 +2843,13 @@ $_SESSION['usuario_logado_pagina'] = true;
 					const horaAtualMinutos = agora.getHours() * 60 + agora.getMinutes();
 					
 					horarioInputs.forEach(input => {
+						// VERIFICAR SE O HORÁRIO ESTÁ VISÍVEL (não tem display: none)
+						const parentDiv = input.closest('.col-3');
+						if (!parentDiv) return;
+						
+						const displayStyle = window.getComputedStyle(parentDiv).display;
+						if (displayStyle === 'none') return; // Pula horários ocultos
+						
 						// Remove segundos se existirem (ex: 07:45:00 -> 07:45)
 						let timeValue = input.value;
 						if (timeValue.length > 5) {
@@ -2859,7 +2866,7 @@ $_SESSION['usuario_logado_pagina'] = true;
 								times.push(timeValue);
 							}
 						} else {
-							// Se não for hoje, adiciona todos os horários
+							// Se não for hoje, adiciona apenas horários visíveis
 							times.push(timeValue);
 						}
 					});

@@ -2079,12 +2079,13 @@ if($total_reg > 0){
 
 		var funcionario = $('#funcionario_modal').val();	
 		var data = $('#data_agenda').val();	
+		var servico = $('#servico').val();
 
 		
 		$.ajax({
 			url: 'paginas/' + pag + "/listar-horarios.php",
 			method: 'POST',
-			data: {funcionario, data},
+			data: {funcionario, data, servico},
 			dataType: "text",
 
 			success:function(result){	
@@ -2388,6 +2389,9 @@ if($total_reg > 0){
 		
 		// Fechar dropdown
 		document.getElementById('servico-dropdown').classList.remove('show');
+		
+		// Atualizar horários disponíveis quando serviço mudar
+		listarHorarios();
 	}
 
 	function filterServicos() {
