@@ -1,8 +1,8 @@
 <?php 
 
-$banco = 'uaisisco_barbearia';
-$usuario = 'uaisisco_barbearia';
-$senha = 'dB(w]jgoyk}z';
+$banco = 'barber';
+$usuario = 'root';
+$senha = '';
 $servidor = 'localhost';
 
 $modo_teste = 'Não';
@@ -10,7 +10,7 @@ $modo_teste = 'Não';
 $url_sistema = "https://$_SERVER[HTTP_HOST]/";
 $url = explode("//", $url_sistema);
 if($url[1] == 'localhost/'){
-	$url_sistema = "http://$_SERVER[HTTP_HOST]/barbearia/";
+	$url_sistema = "http://$_SERVER[HTTP_HOST]/uaibarber/beauty/";
 }
 
 date_default_timezone_set('America/Sao_Paulo');

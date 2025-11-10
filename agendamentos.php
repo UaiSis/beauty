@@ -4030,6 +4030,16 @@ function verificarSessaoCliente() {
     try {
       clienteLogado = JSON.parse(clienteStorage);
       if (clienteLogado && clienteLogado.id) {
+        // Verifica se os dados estão com URL encoding e corrige
+        if (clienteLogado.nome && clienteLogado.nome.includes('%')) {
+          clienteLogado.nome = decodeURIComponent(clienteLogado.nome);
+        }
+        if (clienteLogado.telefone && clienteLogado.telefone.includes('%')) {
+          clienteLogado.telefone = decodeURIComponent(clienteLogado.telefone);
+        }
+        // Atualiza o localStorage com dados corrigidos
+        localStorage.setItem('cliente_logado', JSON.stringify(clienteLogado));
+        
         // Cliente já está logado, preenche os dados
         preencherDadosCliente();
       }
@@ -4101,7 +4111,7 @@ function verificarTelefoneExistente(telefone) {
       } else if (result.includes('Existe')) {
         // Telefone já existe - preenche os dados automaticamente
         var dados = result.split('*');
-        var nome = dados[2];
+        var nome = decodeURIComponent(dados[2]);
         
         // Preenche o campo nome automaticamente
         $('#nome_login').val(nome);
@@ -4165,8 +4175,8 @@ $("#form-login-cliente").submit(function(event) {
         var dados = result.split('*');
         clienteLogado = {
           id: dados[1],
-          nome: dados[2],
-          telefone: dados[3],
+          nome: decodeURIComponent(dados[2]),
+          telefone: decodeURIComponent(dados[3]),
           email: dados[4] || ''
         };
         
@@ -4256,8 +4266,8 @@ function cadastrarNovoCliente(telefone, nome, senha) {
         var dados = result.split('*');
         clienteLogado = {
           id: dados[1],
-          nome: dados[2],
-          telefone: dados[3],
+          nome: decodeURIComponent(dados[2]),
+          telefone: decodeURIComponent(dados[3]),
           email: ''
         };
         
@@ -4298,8 +4308,8 @@ function cadastrarNovoCliente(telefone, nome, senha) {
         var dados = result.split('*');
         clienteLogado = {
           id: dados[1],
-          nome: dados[2],
-          telefone: dados[3],
+          nome: decodeURIComponent(dados[2]),
+          telefone: decodeURIComponent(dados[3]),
           email: ''
         };
         

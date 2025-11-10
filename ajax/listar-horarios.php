@@ -137,7 +137,16 @@ $res_agd = $query_agd->fetchAll(PDO::FETCH_ASSOC);
 
 foreach($res_agd as $agendamento) {
     $hora_agendada = strtotime($agendamento['hora']);
-    $hora_fim_agendada = strtotime("+$tempo minutes", $hora_agendada); // ou tempo salvo no banco, se variável
+    
+    // Buscar o tempo real do serviço agendado
+    $servico_agendado = $agendamento['servico'];
+    $query_tempo = $pdo->prepare("SELECT tempo FROM servicos WHERE id = :servico_id");
+    $query_tempo->bindValue(":servico_id", $servico_agendado);
+    $query_tempo->execute();
+    $res_tempo = $query_tempo->fetchAll(PDO::FETCH_ASSOC);
+    $tempo_servico_agendado = @$res_tempo[0]['tempo'] ?: 30; // padrão 30 minutos se não encontrar
+    
+    $hora_fim_agendada = strtotime("+$tempo_servico_agendado minutes", $hora_agendada);
 
     // Verificar se há sobreposição
     if (

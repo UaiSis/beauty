@@ -81,67 +81,60 @@ if(@count($res) > 0){
 		exit();
 }
 
-// Verifica apenas os intervalos DENTRO da duração do serviço (não o horário final exato)
-// Se o serviço dura exatamente o intervalo, não precisa verificar nada (já foi validado o horário inicial)
-if($tempo > $intervalo){
-	while (@strtotime($nova_hora) < @strtotime($hora_final_servico)){
-		
-		$hora_minutos = @strtotime("+$intervalo minutes", @strtotime($nova_hora));			
-		$nova_hora = date('H:i:s', $hora_minutos);
-		
-		// Se chegou ou passou do horário final do serviço, para o loop
-		if(@strtotime($nova_hora) >= @strtotime($hora_final_servico)){
-			break;
-		}
-		
-		//VERIFICAR NA TABELA HORARIOS AGD SE TEM O HORARIO NESSA DATA
-		$query_agd = $pdo->prepare("SELECT * FROM horarios_agd where data = :data and funcionario = :funcionario and horario = '$nova_hora'");
-		$query_agd->bindValue(":funcionario", "$funcionario");
-		$query_agd->bindValue(":data", "$data");
-		$query_agd->execute();
-		$res_agd = $query_agd->fetchAll(PDO::FETCH_ASSOC);
-		if(@count($res_agd) > 0){
-			echo 'Este serviço demora cerca de '.$tempo.' minutos, precisa escolher outro horário, pois neste horários não temos disponibilidade devido a outros agendamentos!';
-			exit();
-		}
+// Verificar conflitos com agendamentos existentes usando lógica de sobreposição
+// Buscar todos os agendamentos do dia para este funcionário
+$query_agd = $pdo->prepare("SELECT * FROM agendamentos WHERE data = :data AND funcionario = :funcionario");
+$query_agd->bindValue(":funcionario", "$funcionario");
+$query_agd->bindValue(":data", "$data");
+$query_agd->execute();
+$res_agd = $query_agd->fetchAll(PDO::FETCH_ASSOC);
 
+$hora_inicio_tentada = @strtotime($hora);
+$hora_final_tentada = @strtotime($hora_final_servico);
 
+foreach($res_agd as $agendamento_existente) {
+    // Buscar o tempo real do serviço agendado
+    $servico_agendado = $agendamento_existente['servico'];
+    $query_tempo = $pdo->prepare("SELECT tempo FROM servicos WHERE id = :servico_id");
+    $query_tempo->bindValue(":servico_id", $servico_agendado);
+    $query_tempo->execute();
+    $res_tempo = $query_tempo->fetchAll(PDO::FETCH_ASSOC);
+    $tempo_servico_agendado = @$res_tempo[0]['tempo'] ?: 30; // padrão 30 minutos se não encontrar
+    
+    $hora_agendada = @strtotime($agendamento_existente['hora']);
+    $hora_fim_agendada = @strtotime("+$tempo_servico_agendado minutes", $hora_agendada);
 
-		//VERIFICAR NA TABELA AGENDAMENTOS SE TEM O HORARIO NESSA DATA e se tem um intervalo entre o horario marcado e o proximo agendado nessa tabela
-		$query_agd = $pdo->prepare("SELECT * FROM agendamentos where data = :data and funcionario = :funcionario and hora = '$nova_hora'");
-		$query_agd->bindValue(":funcionario", "$funcionario");
-		$query_agd->bindValue(":data", "$data");
-		$query_agd->execute();
-		$res_agd = $query_agd->fetchAll(PDO::FETCH_ASSOC);
-		if(@count($res_agd) > 0){
-			// Se encontrou agendamento em um intervalo interno, não permite
-			echo 'Este serviço demora cerca de '.$tempo.' minutos, precisa escolher outro horário, pois neste horários não temos disponibilidade devido a outros agendamentos!';
-			exit();
-		}
+    // Verificar se há sobreposição de horários
+    if (($hora_inicio_tentada < $hora_fim_agendada) && ($hora_final_tentada > $hora_agendada)) {
+        echo 'Este serviço demora cerca de '.$tempo.' minutos, precisa escolher outro horário, pois neste horários não temos disponibilidade devido a outros agendamentos!';
+        exit();
+    }
+}
 
+// Verificar conflitos com horários bloqueados manualmente
+$query_bloq = $pdo->prepare("SELECT * FROM horarios_agd WHERE data = :data AND funcionario = :funcionario");
+$query_bloq->bindValue(":funcionario", "$funcionario");
+$query_bloq->bindValue(":data", "$data");
+$query_bloq->execute();
+$res_bloq = $query_bloq->fetchAll(PDO::FETCH_ASSOC);
 
-		if(@strtotime($nova_hora) > @strtotime($inicio_almoco) and @strtotime($nova_hora) < @strtotime($final_almoco)){
-		echo 'Este serviço demora cerca de '.$tempo.' minutos, precisa escolher outro horário, pois neste horários não temos disponibilidade devido ao horário de almoço!';
-			exit();
-	}
+foreach($res_bloq as $bloqueio) {
+    $hora_bloqueada = @strtotime($bloqueio['horario']);
+    
+    // Verificar se algum momento do serviço cai em um horário bloqueado
+    if ($hora_bloqueada >= $hora_inicio_tentada && $hora_bloqueada < $hora_final_tentada) {
+        echo 'Este serviço demora cerca de '.$tempo.' minutos, precisa escolher outro horário, pois neste horários não temos disponibilidade devido a outros agendamentos!';
+        exit();
+    }
+}
 
-	}
-	
-	// Verifica se o horário final do serviço conflita com outro agendamento
-	// Só verifica se o serviço termina exatamente no início de outro agendamento
-	$query_agd = $pdo->prepare("SELECT * FROM agendamentos where data = :data and funcionario = :funcionario and hora = '$hora_final_servico'");
-	$query_agd->bindValue(":funcionario", "$funcionario");
-	$query_agd->bindValue(":data", "$data");
-	$query_agd->execute();
-	$res_agd = $query_agd->fetchAll(PDO::FETCH_ASSOC);
-	if(@count($res_agd) > 0){
-		// Se há agendamento começando exatamente quando este serviço termina, está OK
-		// Mas verifica se não está no horário de almoço
-		if(@strtotime($hora_final_servico) > @strtotime($inicio_almoco) and @strtotime($hora_final_servico) < @strtotime($final_almoco)){
-			echo 'Este serviço demora cerca de '.$tempo.' minutos, precisa escolher outro horário, pois neste horários não temos disponibilidade devido ao horário de almoço!';
-			exit();
-		}
-	}
+// Verificar se o serviço conflita com horário de almoço
+if(@strtotime($hora_final_servico) > @strtotime($inicio_almoco) and @strtotime($hora) < @strtotime($final_almoco)){
+    // Verifica se há sobreposição com o horário de almoço
+    if((@strtotime($hora) < @strtotime($final_almoco)) && (@strtotime($hora_final_servico) > @strtotime($inicio_almoco))){
+        echo 'Este serviço demora cerca de '.$tempo.' minutos, precisa escolher outro horário, pois neste horários não temos disponibilidade devido ao horário de almoço!';
+        exit();
+    }
 }
 
 
