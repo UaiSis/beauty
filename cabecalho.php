@@ -732,32 +732,47 @@ window.appConfig = {
             this.handleSelect(index);
           },
           verificarClienteLogado() {
-            // Primeiro verifica localStorage
-            const clienteStorage = localStorage.getItem('cliente_logado');
-            if (clienteStorage) {
-              try {
-                this.clienteLogado = JSON.parse(clienteStorage);
-                return;
-              } catch (e) {
-                console.log('Erro ao recuperar sessão do cliente');
-              }
-            }
-            
-            // Se não tiver no localStorage, verifica se tem nos cookies
+            // Verifica se tem nos cookies primeiro (mais confiável)
             const cookieId = this.getCookie('id_cliente');
             const cookieNome = this.getCookie('nome_cliente');
             const cookieTelefone = this.getCookie('telefone_cliente');
             
-            if (cookieId && cookieNome) {
-              this.clienteLogado = {
-                id: cookieId,
-                nome: cookieNome,
-                telefone: cookieTelefone,
-                email: ''
-              };
-              // Atualiza o localStorage também
-              localStorage.setItem('cliente_logado', JSON.stringify(this.clienteLogado));
+            // Se não tiver cookies, limpa localStorage também (logout foi feito)
+            if (!cookieId || !cookieNome) {
+              localStorage.removeItem('cliente_logado');
+              this.clienteLogado = null;
+              return;
             }
+            
+            // Se tiver cookies, verifica localStorage
+            const clienteStorage = localStorage.getItem('cliente_logado');
+            if (clienteStorage) {
+              try {
+                const cliente = JSON.parse(clienteStorage);
+                // Verifica se o ID do localStorage corresponde ao cookie
+                if (cliente.id === cookieId) {
+                  this.clienteLogado = cliente;
+                  return;
+                } else {
+                  // IDs não correspondem, limpa e recria
+                  localStorage.removeItem('cliente_logado');
+                }
+              } catch (e) {
+                console.log('Erro ao recuperar sessão do cliente');
+                localStorage.removeItem('cliente_logado');
+              }
+            }
+            
+            // Se chegou aqui, tem cookies mas não tem localStorage válido
+            // Restaura do cookie
+            this.clienteLogado = {
+              id: cookieId,
+              nome: cookieNome,
+              telefone: cookieTelefone,
+              email: ''
+            };
+            // Atualiza o localStorage também
+            localStorage.setItem('cliente_logado', JSON.stringify(this.clienteLogado));
           },
           getCookie(name) {
             const value = `; ${document.cookie}`;

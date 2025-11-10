@@ -1,29 +1,11 @@
 <?php 
 @session_start();
+$id_cliente = $_SESSION['id'];
 require_once("../../../conexao.php");
 $tabela = 'agendamentos';
 
-$id_cliente = @$_SESSION['id'];
-
-// Se não tiver ID na sessão mas tiver cookie, restaura
-if(($id_cliente == "" || $id_cliente == null) && isset($_COOKIE['id_cliente']) && $_COOKIE['id_cliente'] != ""){
-	$id_cliente_cookie = $_COOKIE['id_cliente'];
-	$query_temp = $pdo->query("SELECT * FROM clientes WHERE id = '$id_cliente_cookie' LIMIT 1");
-	$res_temp = $query_temp->fetchAll(PDO::FETCH_ASSOC);
-	
-	if(count($res_temp) > 0){
-		$_SESSION['id'] = $res_temp[0]['id'];
-		$_SESSION['nome'] = $res_temp[0]['nome'];
-		$_SESSION['telefone'] = $res_temp[0]['telefone'];
-		$_SESSION['nivel'] = 'Cliente';
-		$_SESSION['aut_token_505052022'] = "fdsfdsafda885574125";
-		$id_cliente = $_SESSION['id'];
-	}
-}
-
 $data_atual = date('Y-m-d');
 
-// Busca agendamentos do cliente usando o ID correto
 $query = $pdo->query("SELECT * FROM agendamentos where cliente = '$id_cliente' ORDER BY id desc");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_reg = @count($res);

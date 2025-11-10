@@ -6,33 +6,44 @@ $id = $_POST['id'];
 $nome = $_POST['nome'];
 $telefone = $_POST['telefone'];
 
-// Valida se o ID existe no banco antes de salvar
-$query = $pdo->query("SELECT * FROM clientes WHERE id = '$id' LIMIT 1");
+// Remove formatação do telefone recebido
+$telefone_limpo = preg_replace('/[^0-9]/', '', $telefone);
+
+// Valida se o ID realmente existe no banco
+$query = $pdo->prepare("SELECT * FROM clientes WHERE id = :id LIMIT 1");
+$query->bindValue(":id", $id);
+$query->execute();
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
+// Se não encontrou, tenta buscar pelo telefone (caso o ID esteja errado)
+if(count($res) == 0){
+    // Busca pelo telefone removendo formatação
+    $query = $pdo->query("SELECT * FROM clientes WHERE REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(telefone, '(', ''), ')', ''), '-', ''), ' ', ''), '.', '') = '$telefone_limpo' LIMIT 1");
+    $res = $query->fetchAll(PDO::FETCH_ASSOC);
+}
+
 if(count($res) > 0){
-	// Cliente existe, usa os dados do banco para garantir consistência
-	$id_cliente = $res[0]['id'];
-	$nome_cliente = $res[0]['nome'];
-	$telefone_cliente = $res[0]['telefone'];
-	
-	// Salva na sessão PHP com dados do banco
-	$_SESSION['id'] = $id_cliente;
-	$_SESSION['nome'] = $nome_cliente;
-	$_SESSION['telefone'] = $telefone_cliente;
-	$_SESSION['nivel'] = 'Cliente';
-	$_SESSION['aut_token_505052022'] = "fdsfdsafda885574125"; // Token de autenticação
-	
-	// Define cookie para durar 30 dias
-	$tempo_expiracao = time() + (30 * 24 * 60 * 60); // 30 dias em segundos
-	
-	setcookie('id_cliente', $id_cliente, $tempo_expiracao, '/');
-	setcookie('nome_cliente', $nome_cliente, $tempo_expiracao, '/');
-	setcookie('telefone_cliente', $telefone_cliente, $tempo_expiracao, '/');
-	
-	echo "Sessão salva com sucesso!";
+    // Dados válidos - usa os dados do banco (mais confiável)
+    $cliente_bd = $res[0];
+    
+    // Salva na sessão PHP com dados do banco
+    $_SESSION['id'] = $cliente_bd['id'];
+    $_SESSION['nome'] = $cliente_bd['nome'];
+    $_SESSION['telefone'] = $cliente_bd['telefone'];
+    $_SESSION['nivel'] = 'Cliente';
+    $_SESSION['aut_token_505052022'] = "fdsfdsafda885574125"; // Token de autenticação
+    
+    // Define cookie para durar 30 dias com dados do banco
+    $tempo_expiracao = time() + (30 * 24 * 60 * 60); // 30 dias em segundos
+    
+    setcookie('id_cliente', $cliente_bd['id'], $tempo_expiracao, '/');
+    setcookie('nome_cliente', $cliente_bd['nome'], $tempo_expiracao, '/');
+    setcookie('telefone_cliente', $cliente_bd['telefone'], $tempo_expiracao, '/');
+    
+    echo "Sessão salva com sucesso!";
 } else {
-	echo "Erro: Cliente não encontrado no banco!";
+    // Dados inválidos - não salva
+    echo "Erro: Cliente não encontrado no banco de dados!";
 }
 ?>
 

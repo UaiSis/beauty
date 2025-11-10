@@ -4293,6 +4293,48 @@ function cadastrarNovoCliente(telefone, nome, senha) {
           avancarParaEtapa3();
         }, 1500);
         
+      } else if (result.includes('Cliente já cadastrado')) {
+        // Cliente já existe - usa os dados do cliente existente
+        var dados = result.split('*');
+        clienteLogado = {
+          id: dados[1],
+          nome: dados[2],
+          telefone: dados[3],
+          email: ''
+        };
+        
+        // Salva no localStorage
+        localStorage.setItem('cliente_logado', JSON.stringify(clienteLogado));
+        
+        // Salva na sessão PHP (cookie por 30 dias)
+        $.ajax({
+          url: "ajax/salvar-sessao-cliente.php",
+          method: 'POST',
+          data: {
+            id: clienteLogado.id,
+            nome: clienteLogado.nome,
+            telefone: clienteLogado.telefone
+          },
+          dataType: "text"
+        });
+        
+        // Preenche os dados na etapa 4
+        preencherDadosCliente();
+        
+        // Mostra mensagem informativa
+        $('#mensagem-login').html(
+          '<div class="alert alert-info" style="background: rgba(0, 123, 255, 0.08); border: 1px solid rgba(0, 123, 255, 0.2); border-radius: 10px; padding: 12px; margin: 0;">' +
+          '<i class="fa fa-info-circle mr-2"></i>' +
+          '<small>Cliente encontrado! Bem-vindo(a) de volta, <strong>' + clienteLogado.nome + '</strong>!</small>' +
+          '</div>'
+        );
+        
+        // Fecha o modal e avança para a etapa 3
+        setTimeout(function() {
+          $('#modalLoginCliente').modal('hide');
+          avancarParaEtapa3();
+        }, 1500);
+        
       } else {
         $('#mensagem-login').html(
           '<div class="alert alert-danger" style="background: rgba(220, 53, 69, 0.08); border: 1px solid rgba(220, 53, 69, 0.2); border-radius: 10px; padding: 12px; margin: 0;">' +

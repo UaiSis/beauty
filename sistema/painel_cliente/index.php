@@ -7,22 +7,6 @@ $pag_inicial = 'home';
 
 $id_usuario = $_SESSION['id'];
 
-// Se não tiver ID na sessão mas tiver cookie, restaura
-if(($id_usuario == "" || $id_usuario == null) && isset($_COOKIE['id_cliente']) && $_COOKIE['id_cliente'] != ""){
-	$id_cliente_cookie = $_COOKIE['id_cliente'];
-	$query_temp = $pdo->query("SELECT * FROM clientes WHERE id = '$id_cliente_cookie' LIMIT 1");
-	$res_temp = $query_temp->fetchAll(PDO::FETCH_ASSOC);
-	
-	if(count($res_temp) > 0){
-		$_SESSION['id'] = $res_temp[0]['id'];
-		$_SESSION['nome'] = $res_temp[0]['nome'];
-		$_SESSION['telefone'] = $res_temp[0]['telefone'];
-		$_SESSION['nivel'] = 'Cliente';
-		$_SESSION['aut_token_505052022'] = "fdsfdsafda885574125";
-		$id_usuario = $_SESSION['id'];
-	}
-}
-
 $query = $pdo->query("SELECT * from clientes where id = '$id_usuario'");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_reg = @count($res);
