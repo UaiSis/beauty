@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - /bin/echo "🚀 Iniciando deploy automático da Beauty"
+    - /bin/git --git-dir=/home/uaisisco/beauty/.git --work-tree=/home/uaisisco/beauty pull origin main
+    - /bin/echo "✅ Deploy concluído com sucesso!"
