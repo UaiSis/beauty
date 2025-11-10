@@ -1,0 +1,39 @@
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "ref" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 67
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "gerarDireto" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 69
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined variable $descricao in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 70
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "sobrenome" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 72
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 948
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 1066
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 1080
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 1089
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 25
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 25
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 26
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 26
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 27
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 27
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 28
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 28
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 29
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 29
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 30
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 30
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 31
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 32
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 36
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 36
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 37
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 37
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 38
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 38
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 44
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 56
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 56
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "ref" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 67
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "gerarDireto" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 69
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined variable $descricao in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 70
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "sobrenome" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 72
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 948
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 1066
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 1080
+[10-Nov-2025 12:11:02 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home/uaisisco/barbearia.uaisis.com/pagamentos/index.php on line 1089

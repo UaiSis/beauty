@@ -1,0 +1,151 @@
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "api" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 9
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "nome_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 10
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "email_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 11
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "whatsapp_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 12
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "telefone_fixo_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 13
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 14
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "tipo_rel" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 15
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "instagram_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 16
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "tipo_comissao" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 17
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_rodape" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 18
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_sobre" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 19
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "mapa" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 20
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "quantidade_cartoes" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 21
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_fidelidade" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 22
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_agendamento" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 23
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "msg_agendamento" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 24
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 25
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "cidade_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 26
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "agendamento_dias" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 27
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "itens_pag" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 28
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "token" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 29
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "minutos_aviso" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 30
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "instancia" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 31
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "url_video" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 32
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "posicao_video" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 33
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "taxa_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 34
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "lanc_comissao" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 35
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "porc_servico" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 36
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "pgto_api" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 37
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 38
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "opcao_pagar" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 39
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 97
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 125
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "foto-favicon192" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 164
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 164
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "foto-favicon512" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 215
+[10-Nov-2025 09:25:45 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 215
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "api" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 9
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "nome_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 10
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "email_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 11
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "whatsapp_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 12
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "telefone_fixo_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 13
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 14
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "tipo_rel" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 15
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "instagram_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 16
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "tipo_comissao" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 17
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_rodape" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 18
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_sobre" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 19
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "mapa" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 20
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "quantidade_cartoes" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 21
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_fidelidade" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 22
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_agendamento" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 23
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "msg_agendamento" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 24
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 25
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "cidade_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 26
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "agendamento_dias" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 27
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "itens_pag" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 28
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "token" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 29
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "minutos_aviso" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 30
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "instancia" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 31
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "url_video" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 32
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "posicao_video" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 33
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "taxa_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 34
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "lanc_comissao" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 35
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "porc_servico" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 36
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "pgto_api" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 37
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 38
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "opcao_pagar" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 39
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 97
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 125
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "foto-favicon192" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 164
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 164
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "foto-favicon512" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 215
+[10-Nov-2025 09:59:45 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 215
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "api" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 9
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "nome_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 10
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "email_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 11
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "whatsapp_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 12
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "telefone_fixo_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 13
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 14
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "tipo_rel" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 15
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "instagram_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 16
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "tipo_comissao" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 17
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_rodape" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 18
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_sobre" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 19
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "mapa" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 20
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "quantidade_cartoes" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 21
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_fidelidade" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 22
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_agendamento" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 23
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "msg_agendamento" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 24
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 25
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "cidade_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 26
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "agendamento_dias" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 27
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "itens_pag" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 28
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "token" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 29
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "minutos_aviso" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 30
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "instancia" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 31
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "url_video" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 32
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "posicao_video" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 33
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "taxa_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 34
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "lanc_comissao" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 35
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "porc_servico" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 36
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "pgto_api" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 37
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 38
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "opcao_pagar" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 39
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 97
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 125
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "foto-favicon192" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 164
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 164
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Undefined array key "foto-favicon512" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 215
+[10-Nov-2025 10:45:31 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 215
+[10-Nov-2025 14:38:12 UTC] PHP Parse error:  Unmatched '}' in /home/uaisisco/barbearia.uaisis.com/sistema/painel/index.php on line 1358
+[10-Nov-2025 14:38:12 UTC] PHP Parse error:  Unmatched '}' in /home/uaisisco/barbearia.uaisis.com/sistema/painel/index.php on line 1358
+[10-Nov-2025 14:38:13 UTC] PHP Parse error:  Unmatched '}' in /home/uaisisco/barbearia.uaisis.com/sistema/painel/index.php on line 1358
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "api" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 9
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "nome_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 10
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "email_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 11
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "whatsapp_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 12
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "telefone_fixo_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 13
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 14
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "tipo_rel" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 15
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "instagram_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 16
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "tipo_comissao" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 17
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_rodape" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 18
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_sobre" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 19
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "mapa" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 20
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "quantidade_cartoes" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 21
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_fidelidade" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 22
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "texto_agendamento" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 23
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "msg_agendamento" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 24
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 25
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "cidade_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 26
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "agendamento_dias" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 27
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "itens_pag" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 28
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "token" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 29
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "minutos_aviso" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 30
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "instancia" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 31
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "url_video" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 32
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "posicao_video" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 33
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "taxa_sistema" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 34
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "lanc_comissao" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 35
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "porc_servico" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 36
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "pgto_api" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 37
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 38
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "opcao_pagar" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 39
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 97
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 125
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "foto-favicon192" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 164
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 164
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Undefined array key "foto-favicon512" in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 215
+[10-Nov-2025 11:51:29 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home/uaisisco/barbearia.uaisis.com/sistema/painel/editar-config.php on line 215

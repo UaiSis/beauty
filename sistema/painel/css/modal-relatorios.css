@@ -1,0 +1,85 @@
+/* Estilos para botões de filtro nos modais de relatório */
+.btn-filtro {
+	padding: 10px 20px;
+	border: 2px solid #e0e0e0;
+	border-radius: 10px;
+	background: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	color: #6c757d;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.btn-filtro:hover {
+	background: rgba(0, 122, 99, 0.05);
+	border-color: #007A63;
+	color: #007A63;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0, 122, 99, 0.1);
+}
+
+.btn-filtro.active {
+	background: #007A63;
+	border-color: #007A63;
+	color: #fff;
+	box-shadow: 0 4px 12px rgba(0, 122, 99, 0.3);
+}
+
+.btn-filtro i {
+	font-size: 14px;
+}
+
+/* Divisor entre seções */
+.modal-section-divider {
+	height: 1px;
+	background: #f0f0f0;
+	margin: 24px 0;
+}
+
+/* Botões do Footer dos Modais de Relatório */
+.btn-cancel {
+	background: #fff;
+	color: #6c757d;
+	border: 2px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 10px 24px;
+	font-weight: 600;
+	font-size: 14px;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.btn-cancel:hover {
+	background: #f8f9fa;
+	border-color: #6c757d;
+	color: #495057;
+}
+
+.btn-submit {
+	background: #007A63;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	padding: 10px 24px;
+	font-weight: 600;
+	font-size: 14px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.btn-submit:hover {
+	background: #006854;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 16px rgba(0, 122, 99, 0.3);
+}
+
+.btn-submit i {
+	font-size: 14px;
+}
